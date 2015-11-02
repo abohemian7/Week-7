@@ -2,15 +2,23 @@
 <html lang="en">
   <head>
     <link rel="stylesheet" href="styles.css"/>
-    <script src="vendors.js"></script>
+    <script src="../bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="../bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="../bower_components/angular/angular.min.js"></script>
     <script src="app.js"></script>
   </head>
   <body>
     <h1>Hello Fizzbuzzer</h1>
-    <div id="div1" class="well row">
-      <button id="plus-btn" class="btn">+</button>
+    <div ng-app="" ng-controller="MyController" id="div1" class="well row" ng-init="buzzer=0">
+      <button id="plus-btn" class="btn" ng-click="buzzer=buzzer+1">+</button>
+      <button id="minus-btn" class="btn" ng-click="buzzer=buzzer-1">-</button>
+      <button id="alert-btn" class="btn" ng-click=window.alert('something')>alert</button>
+      {{ buzzer }}
+        <div ng-show="(!(buzzer%3) && !(buzzer===0))">Fizz</div>
+        <div ng-hide="((buzzer%5) || (buzzer===0))">Buzz</div>
+      </div>
+      <div ng-controller>
+      </div>
       <span id="fizzbuzz"></span>
-    </div>
-
   </body>
 </html>
